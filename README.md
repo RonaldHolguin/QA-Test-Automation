@@ -59,13 +59,13 @@ The following instructions and commands need to be executed in your computer.
 
 ## Part 2
 
-1)•Explain the difference, in databases, between ‘Having’ and ‘where’ when it comes to a query. Develop one example for each one of this two cases and point out the difference.
+1) Explain the difference, in databases, between ‘Having’ and ‘where’ when it comes to a query. Develop one example for each one of this two cases and point out the difference.
 
     Differences:
     WHERE se utiliza para filtrar filas individuales antes de agrupar resultados.
     HAVING se utiliza para filtrar grupos de resultados basados en condiciones de agregación.
 
-2)Write a query for create a data table ‘Student’ with the following attributes in it: ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’ (5.0 scale).
+2) Write a query for create a data table ‘Student’ with the following attributes in it: ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’ (5.0 scale).
 
     CREATE TABLE Student (
         Name VARCHAR(50),
@@ -120,13 +120,13 @@ The following instructions and commands need to be executed in your computer.
         ('Ana García', 'A039', 'Derecho Internacional', 23, 'Derechos Humanos', 3.7),
         ('Diego Ramírez', 'A040', 'Ingeniería Biomédica', 22, 'Bioinstrumentación', 4.1);
 
-4)Write a query to get the average of the GPA from all the students which name starts with ‘A’.
+4) Write a query to get the average of the GPA from all the students which name starts with ‘A’.
 
     SELECT AVG(GPA) AS Promedio_GPA
     FROM Student
     WHERE Name LIKE 'A%';
 
-5)Write a query to get the list of students that are in the same class, have a GPA higher than 3.5/5.0 and order them by Age and Name. 
+5) Write a query to get the list of students that are in the same class, have a GPA higher than 3.5/5.0 and order them by Age and Name. 
 
     SELECT *
     FROM Student
@@ -134,7 +134,7 @@ The following instructions and commands need to be executed in your computer.
     AND GPA > 3.5
     ORDER BY Age, Name;
 
-6)Write a query to get the list of all the students with ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’.
+6) Write a query to get the list of all the students with ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’.
 
     SELECT Name, Code, Class, Age, Favorite_Subject, GPA
     FROM Student;
@@ -142,7 +142,7 @@ The following instructions and commands need to be executed in your computer.
 7)	Take the following 25 question quiz about SQL, please include a screenshot about the results and time it took to take the test.
 http://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL
 
-![diagram](part_2/SQL test result.png)
+![diagram](./part_2/SQL%20test%20result.png)
 
 
 ## Part 3
@@ -192,7 +192,7 @@ http://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL
     destacando la importancia de las pruebas unitarias y fomentando un equilibrio entre los diferentes niveles de pruebas para mejorar la calidad del software.
 
 
-3)  Could you explain the difference between a black box testing and a white box testing?
+3) Could you explain the difference between a black box testing and a white box testing?
 
     La principal diferencia entre pruebas de caja negra y pruebas de caja blanca radica en el nivel de conocimiento que tiene el tester sobre el sistema o software a probar.
     En las pruebas de caja negra, se prueba la funcionalidad sin considerar la lógica interna
@@ -244,7 +244,10 @@ http://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL
         
         Uso: Los casos de prueba se diseñan basándose en especificaciones, requisitos, y la funcionalidad esperada del software. Se prueban las entradas y salidas del sistema sin considerar el código interno.
 
-6)	What is the purpose of the following types of tests?
+
+
+
+6) What is the purpose of the following types of tests?
 	•	Functional test: 
 	•	Performance test: 
 	•	Security test:
@@ -287,6 +290,7 @@ http://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL
             Propósito: Verificar que las unidades individuales de código (funciones, métodos, clases) funcionen correctamente de manera aislada.
             
             Enfoque: Evaluar la funcionalidad de las partes más pequeñas del software a través de pruebas específicas realizadas por los desarrolladores.
+
 
 
 
