@@ -1,10 +1,21 @@
-1)•Explain the difference, in databases, between ‘Having’ and ‘where’ when it comes to a query. Develop one example for each one of this two cases and point out the difference.
+1) Explain the difference, in databases, between ‘Having’ and ‘where’ when it comes to a query. Develop one example for each one of this two cases and point out the difference.
 
     Differences:
-    WHERE se utiliza para filtrar filas individuales antes de agrupar resultados.
-    HAVING se utiliza para filtrar grupos de resultados basados en condiciones de agregación.
+    WHERE used to filter individual rows before grouping results.
 
-2)Write a query for create a data table ‘Student’ with the following attributes in it: ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’ (5.0 scale).
+        SELECT *
+        FROM Pedidos
+        WHERE ID_Cliente = 12345 AND Cantidad > 50;
+
+    HAVING used to filter groups of results based on aggregation conditions.
+
+        SELECT ID_Cliente, SUM(Cantidad) AS TotalCantidad
+        FROM Pedidos
+        GROUP BY ID_Cliente
+        HAVING SUM(Cantidad) > 100;
+
+
+2) Write a query for create a data table ‘Student’ with the following attributes in it: ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’ (5.0 scale).
 
     CREATE TABLE Student (
         Name VARCHAR(50),
@@ -59,13 +70,13 @@
         ('Ana García', 'A039', 'Derecho Internacional', 23, 'Derechos Humanos', 3.7),
         ('Diego Ramírez', 'A040', 'Ingeniería Biomédica', 22, 'Bioinstrumentación', 4.1);
 
-4)Write a query to get the average of the GPA from all the students which name starts with ‘A’.
+4) Write a query to get the average of the GPA from all the students which name starts with ‘A’.
 
     SELECT AVG(GPA) AS Promedio_GPA
     FROM Student
     WHERE Name LIKE 'A%';
 
-5)Write a query to get the list of students that are in the same class, have a GPA higher than 3.5/5.0 and order them by Age and Name. 
+5) Write a query to get the list of students that are in the same class, have a GPA higher than 3.5/5.0 and order them by Age and Name. 
 
     SELECT *
     FROM Student
@@ -73,7 +84,7 @@
     AND GPA > 3.5
     ORDER BY Age, Name;
 
-6)Write a query to get the list of all the students with ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’.
+6) Write a query to get the list of all the students with ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’.
 
     SELECT Name, Code, Class, Age, Favorite_Subject, GPA
     FROM Student;
@@ -81,8 +92,4 @@
 7)	Take the following 25 question quiz about SQL, please include a screenshot about the results and time it took to take the test.
 http://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL
 
-![diagram](part_2/SQL test result.png)
-
-
-
-
+![diagram](./SQL%20test%20result.png)

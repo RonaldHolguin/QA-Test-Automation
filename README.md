@@ -62,8 +62,19 @@ The following instructions and commands need to be executed in your computer.
 1) Explain the difference, in databases, between ‘Having’ and ‘where’ when it comes to a query. Develop one example for each one of this two cases and point out the difference.
 
     Differences:
-    WHERE se utiliza para filtrar filas individuales antes de agrupar resultados.
-    HAVING se utiliza para filtrar grupos de resultados basados en condiciones de agregación.
+    WHERE used to filter individual rows before grouping results.
+
+        SELECT *
+        FROM Pedidos
+        WHERE ID_Cliente = 12345 AND Cantidad > 50;
+
+    HAVING used to filter groups of results based on aggregation conditions.
+
+        SELECT ID_Cliente, SUM(Cantidad) AS TotalCantidad
+        FROM Pedidos
+        GROUP BY ID_Cliente
+        HAVING SUM(Cantidad) > 100;
+
 
 2) Write a query for create a data table ‘Student’ with the following attributes in it: ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’ (5.0 scale).
 
@@ -149,103 +160,97 @@ http://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL
 
 1) What is the difference between a unit test, an acceptance test, an integration test and an end-to-end test?
 
-    Cada tipo de prueba tiene su propósito específico en el ciclo de vida del desarrollo de software y se enfoca en diferentes aspectos y niveles del sistema.
-    para poder responder la pregunta primero hablemos sobre las cualidades de cada una y de ultimo sus diferencias
+    Each type of testing has its specific purpose in the software development life cycle and focuses on different aspects and levels of the system.
+    In order to answer the question, let's first talk about the qualities of each one and finally their differences.
 
-        Las pruebas unitarias : 
-            se centran en validar el comportamiento individual de componentes o unidades de código.
-            Son pruebas pequeñas y se ejecutan de manera aislada, generalmente escritas por los desarrolladores.
-            Su objetivo es asegurar que cada parte del código (una función, método o clase) funcione correctamente según su diseño.
-            Se realizan usando frameworks de pruebas como JUnit, NUnit, Jest, entre otros, y se ejecutan frecuentemente durante el desarrollo.
+        Unit tests:
+            They focus on validating the individual behavior of components or units of code.
+            They are small tests and run in isolation, usually written by developers.
+            Its goal is to ensure that each part of the code (a function, method, or class) works correctly as designed.
+            They are carried out using testing frameworks such as JUnit, NUnit, Jest, among others, and are executed frequently during development.
 
-        Las pruebas de integración :
-            evalúan cómo los componentes individuales se combinan y funcionan juntos como un sistema más grande.
-            Verifican la interacción entre diferentes partes del sistema y cómo se integran para formar un conjunto funcional.
-            Pueden ser manuales o automatizadas y se realizan después de las pruebas unitarias para asegurar que las unidades funcionen en conjunto correctamente.
-            Identifican problemas que pueden surgir debido a la interacción entre módulos y cómo se comunican entre sí.
+        Integration tests:
+            They evaluate how individual components combine and function together as a larger system.
+            They verify the interaction between different parts of the system and how they integrate to form a functional whole.
+            They can be manual or automated and are performed after unit testing to ensure that the units work together correctly.
+            They identify problems that may arise due to the interaction between modules and how they communicate with each other.
        
-        Las pruebas de aceptación :
-            validan si el sistema cumple con los requisitos y expectativas del cliente o usuario final.
-            Generalmente se realizan para evaluar el comportamiento del sistema desde la perspectiva del usuario final.
-            Pueden ser automatizadas o manuales, y a menudo se basan en escenarios de uso del sistema.
-            Están diseñadas para asegurar que el software entregado cumpla con las necesidades y expectativas del cliente.
+        Acceptance tests:
+            They validate whether the system meets the requirements and expectations of the client or end user.
+            They are generally performed to evaluate the behavior of the system from the perspective of the end user.
+            They can be automated or manual, and are often based on system usage scenarios.
+            They are designed to ensure that the delivered software meets the customer's needs and expectations.
             
-        Las pruebas de extremo a extremo:
-            evalúan todo el flujo de un sistema desde el inicio hasta el final.
-            Verifican el funcionamiento del sistema completo, incluyendo la interacción de todos los componentes y su comportamiento en un entorno similar al de producción.
-            A menudo simulan el flujo real del usuario, desde la entrada de datos hasta la salida y las interacciones entre varios sistemas o módulos.
-            Pueden ser complejas y requieren escenarios de prueba bien diseñados para cubrir todas las funcionalidades.
+        End-to-end testing:
+            They evaluate the entire flow of a system from start to finish.
+            They verify the operation of the entire system, including the interaction of all components and their behavior in a production-like environment.
+            They often simulate the actual user flow, from data input to output and interactions between various systems or modules.
+            They can be complex and require well-designed test scenarios to cover all functionalities.
         
-    En resumen
-    las pruebas unitarias se centran en partes individuales del código.
-    las pruebas de integración se centran en cómo se combinan estas partes
-    las pruebas de aceptación se enfocan en validar los requisitos del usuario
-    mientras que las pruebas de extremo a extremo evalúan el sistema completo en un entorno similar al de producción
-    Todas estas pruebas son importantes para garantizar la calidad y el funcionamiento correcto del software.
+    In summary
+    Unit tests focus on individual parts of the code.
+    Integration testing focuses on how these parts fit together
+    Acceptance testing focuses on validating user requirements
+    while end-to-end testing evaluates the entire system in a production-like environment
+    All these tests are important to ensure the quality and correct functioning of the software.
 
 
 2) Could you explain Cohn's automation pyramid?
 
-    La idea central de la pirámide es que las pruebas más básicas y rápidas (pruebas unitarias) conformen la base sólida de las pruebas automatizadas
-    mientras que las pruebas de integración, las pruebas de UI y las pruebas de sistema sean menos numerosas pero complementen y validen la funcionalidad del sistema desde diferentes perspectivas.
-    Este modelo proporciona una guía sobre la distribución adecuada de esfuerzos y recursos en las pruebas automatizadas
-    destacando la importancia de las pruebas unitarias y fomentando un equilibrio entre los diferentes niveles de pruebas para mejorar la calidad del software.
-
+    The central idea of ​​the pyramid is that the most basic and fastest tests (unit tests) form the solid foundation of automated tests
+    while integration tests, UI tests and system tests are less numerous but complement and validate the functionality of the system from different perspectives.
+    This model provides guidance on the appropriate distribution of efforts and resources in automated testing.
+    highlighting the importance of unit testing and encouraging a balance between different levels of testing to improve software quality.
 
 3) Could you explain the difference between a black box testing and a white box testing?
 
-    La principal diferencia entre pruebas de caja negra y pruebas de caja blanca radica en el nivel de conocimiento que tiene el tester sobre el sistema o software a probar.
-    En las pruebas de caja negra, se prueba la funcionalidad sin considerar la lógica interna
-    mientras que en las pruebas de caja blanca se evalúa la estructura y la lógica interna del código.
-    Ambas técnicas son complementarias y se utilizan en conjunto para garantizar una cobertura exhaustiva en la validación del software.
+    The main difference between black box testing and white box testing lies in the level of knowledge that the tester has about the system or software to be tested.
+    In black box testing, functionality is tested without considering the internal logic.
+    while in white box testing the structure and internal logic of the code are evaluated.
+    Both techniques are complementary and are used together to ensure exhaustive coverage in software validation.
 
 4) What is the purpose of an exploratory test and when is it useful to run them?
 
-    Una prueba exploratoria es una técnica de prueba en la que el tester, en lugar de seguir un plan de pruebas detallado y predefinido, interactúa dinámicamente con el software, investigando, descubriendo y evaluando su funcionamiento de manera espontánea y creativa.
-    El propósito principal de las pruebas exploratorias es descubrir defectos y problemas no documentados o inesperados en el software, así como comprender mejor su funcionamiento en un tiempo limitado.
+    An exploratory test is a testing technique in which the tester, instead of following a detailed and predefined test plan, dynamically interacts with the software, investigating, discovering and evaluating its operation in a spontaneous and creative way.
+    The main purpose of exploratory testing is to discover undocumented or unexpected defects and problems in the software, as well as to better understand its operation in a limited time.
 
-    Las pruebas exploratorias son útiles en varias situaciones.
-    como al inicio del ciclo de desarrollo cuando hay poca documentación disponible
-    en situaciones de tiempo limitado para pruebas formales.
-    en áreas críticas donde se necesitan pruebas adicionales, o simplemente para explorar y comprender mejor el software.
-    Además, pueden ser una herramienta valiosa en equipos ágiles o métodos de desarrollo iterativos, donde se valora la adaptabilidad y la flexibilidad en el proceso de prueba.
+    Exploratory testing is useful in several situations.
+    such as at the beginning of the development cycle when there is little documentation available
+    in time-limited situations for formal testing.
+    in critical areas where additional testing is needed, or simply to explore and better understand the software.
+    Additionally, they can be a valuable tool in agile teams or iterative development methods, where adaptability and flexibility in the testing process are valued.
 
 5) Mention at least 5 test design techniques and explain them briefly
 
-    A)Pruebas de Equivalencia:
+    A)Equivalence Tests:
 
-        Explicación: Esta técnica consiste en dividir el conjunto de datos en clases de equivalencia y luego seleccionar casos de prueba representativos de cada clase.
+        Explanation: This technique involves dividing the data set into equivalence classes and then selecting representative test cases from each class.
         
-        Uso: Se eligen un conjunto mínimo de casos de prueba que cubran diferentes escenarios dentro de cada clase de equivalencia. Por ejemplo, si una función espera números entre 1 y 100, se seleccionarán casos de prueba para valores dentro, en el límite y fuera de ese rango.
+        Usage: A minimum set of test cases are chosen that cover different scenarios within each equivalence class. For example, if a function expects numbers between 1 and 100, test cases will be selected for values ​​inside, on the edge, and outside that range.
     
-    B)Pruebas de Límites (Boundary Testing):
+    B)Boundary Testing:
 
-        Explicación: Se enfoca en probar los límites o bordes entre diferentes clases de equivalencia.
+        Explanation: It focuses on testing the limits or edges between different equivalence classes.
 
-        Uso: Se seleccionan casos de prueba que se encuentren en los límites, incluyendo valores límite y justo fuera de estos límites. Por ejemplo, si se tiene un campo de entrada que acepta valores entre 1 y 10, las pruebas de límites se centran en probar con 1, 10 y valores como 0 y 11.
+        Usage: Test cases are selected that are on the limits, including limit values ​​and just outside these limits. For example, if you have an input field that accepts values ​​between 1 and 10, bounds testing focuses on testing with 1, 10, and values ​​like 0 and 11.
 
-    C)Tabla de Decisión (Decision Table Testing):
+    C)Decision Table (Decision Table Testing):
 
-        Explicación: Se utiliza para probar combinaciones específicas de condiciones de entrada y determinar las acciones correspondientes.
+        Explanation: Used to test specific combinations of input conditions and determine corresponding actions.
         
-        Uso: Se crea una tabla que enumera todas las posibles combinaciones de condiciones de entrada y sus acciones asociadas. Luego, se prueban cada una de estas combinaciones.
+        Usage: A table is created that lists all possible combinations of input conditions and their associated actions. Each of these combinations are then tested.
 
+    D)State Testing (State Transition Testing):
 
-    D)Pruebas de Estado (State Transition Testing):
-
-        Explicación: Esta técnica se utiliza para probar el comportamiento de un sistema en diferentes estados y las transiciones entre estos estados.
+        Explanation: This technique is used to test the behavior of a system in different states and the transitions between these states.
         
-        Uso: Se modelan los diferentes estados del sistema, junto con las transiciones permitidas entre ellos. Las pruebas se centran en probar estas transiciones y el comportamiento del sistema en cada estado.
+        Use: The different states of the system are modeled, along with the allowed transitions between them. Testing focuses on testing these transitions and the behavior of the system in each state.
 
+    E)Black Box Based Testing (Black Box Testing):
 
-    E)Pruebas Basadas en Caja Negra (Black Box Testing):
-
-        Explicación: Se enfoca en probar la funcionalidad del software sin conocer su estructura interna o lógica de implementación.
+        Explanation: It focuses on testing the functionality of the software without knowing its internal structure or implementation logic.
         
-        Uso: Los casos de prueba se diseñan basándose en especificaciones, requisitos, y la funcionalidad esperada del software. Se prueban las entradas y salidas del sistema sin considerar el código interno.
-
-
-
+        Usage: Test cases are designed based on specifications, requirements, and the expected functionality of the software. The inputs and outputs of the system are tested without considering the internal code.
 
 6) What is the purpose of the following types of tests?
 	•	Functional test: 
@@ -255,42 +260,41 @@ http://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL
 	•	API test: 
 	•	Unit Test:
 
-    • Prueba funcional:
+    • Functional test:
 
-            Propósito: Verificar que el software cumpla con los requisitos funcionales especificados.
+            Purpose: Verify that the software meets the specified functional requirements.
             
-            Enfoque: Evaluar las funciones, características y comportamientos del software desde la perspectiva del usuario final.
+            Approach: Evaluate the functions, features and behaviors of the software from the perspective of the end user.
 
-    • Prueba de rendimiento:
+    • Performance test:
 
-            Propósito: Evaluar cómo se comporta el software en términos de velocidad, capacidad, escalabilidad y estabilidad bajo diferentes cargas y situaciones.
+            Purpose: To evaluate how the software performs in terms of speed, capacity, scalability and stability under different loads and situations.
 
-            Enfoque: Medir y analizar el rendimiento del software en términos de tiempo de respuesta, uso de recursos, tiempo de procesamiento, etc.
+            Approach: Measure and analyze software performance in terms of response time, resource usage, processing time, etc.
     
-    • Prueba de seguridad:
+    • Security test:
 
-            Propósito: Identificar vulnerabilidades, riesgos y problemas de seguridad en el software para protegerlo contra posibles amenazas.
+            Purpose: Identify vulnerabilities, risks and security issues in software to protect it against potential threats.
             
-            Enfoque: Evaluar la resistencia del sistema ante ataques, fallos de seguridad, robo de datos, entre otros.  
+            Approach: Evaluate the system's resistance to attacks, security failures, data theft, among others.
 
-    • Prueba de usabilidad:
+    • Usability test:
 
-            Propósito: Evaluar la facilidad de uso, la eficiencia y la satisfacción del usuario al interactuar con el software.
+            Purpose: Evaluate ease of use, efficiency, and user satisfaction when interacting with the software.
             
-            Enfoque: Analizar la interfaz de usuario, la navegación, la accesibilidad y la experiencia general del usuario.
+            Focus: Analyze the user interface, navigation, accessibility and overall user experience.
 
-    • Prueba API:
+    • API Test:
 
-            Propósito: Verificar el comportamiento funcional, la confiabilidad y la integración entre diferentes componentes del software a través de sus interfaces.
+            Purpose: Verify the functional behavior, reliability and integration between different software components through their interfaces.
             
-            Enfoque: Probar los métodos de entrada/salida, el manejo de errores, la autenticación, la seguridad y la interoperabilidad de las API.
+            Focus: Test input/output methods, error handling, authentication, security, and API interoperability.
 
-    • Prueba de unidad:
+    • Unit test:
 
-            Propósito: Verificar que las unidades individuales de código (funciones, métodos, clases) funcionen correctamente de manera aislada.
+            Purpose: Verify that individual units of code (functions, methods, classes) work correctly in isolation.
             
-            Enfoque: Evaluar la funcionalidad de las partes más pequeñas del software a través de pruebas específicas realizadas por los desarrolladores.
-
+            Approach: Evaluate the functionality of the smallest parts of the software through specific tests performed by the developers.
 
 
 
