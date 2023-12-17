@@ -59,26 +59,26 @@ The following instructions and commands need to be executed in your computer.
 
 ## Part 2
 
-1)• Explicar la diferencia, en las bases de datos, entre "Tener" y "dónde" cuando se trata de una consulta. Desarrolla un ejemplo para cada uno de estos dos casos y señala la diferencia.
+1)•Explain the difference, in databases, between ‘Having’ and ‘where’ when it comes to a query. Develop one example for each one of this two cases and point out the difference.
 
-    Diferencias:
+    Differences:
     WHERE se utiliza para filtrar filas individuales antes de agrupar resultados.
     HAVING se utiliza para filtrar grupos de resultados basados en condiciones de agregación.
 
-2)Escriba una consulta para crear una tabla de datos 'Estudiante' con los siguientes atributos: 'Nombre, 'Código, 'Clase', 'Edad', 'Asunto favorito, 'GPA' (escala 5.0)
+2)Write a query for create a data table ‘Student’ with the following attributes in it: ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’ (5.0 scale).
 
-    CREATE TABLE Estudiante (
-        Nombre VARCHAR(50),
-        Código VARCHAR(10),
-        Clase VARCHAR(50),
-        Edad INT,
-        Asunto_favorito VARCHAR(50),
+    CREATE TABLE Student (
+        Name VARCHAR(50),
+        Code VARCHAR(10),
+        Class VARCHAR(50),
+        Age INT,
+        Favorite_Subject VARCHAR(50),
         GPA DECIMAL(3, 2)
     );
 
-3) Insertar al menos 40 registros en la última tabla con datos cercanos a los reales.
+3) Insert at least 40 records in the last table with close to real data.
 
-    `INSERT INTO Estudiante (Nombre, Código, Clase, Edad, Asunto_favorito, GPA) VALUES
+    `INSERT INTO Student (Name, Code, Class, Age, Favorite_Subject, GPA) VALUES
         ('María Pérez', 'A001', 'Historia del Arte', 20, 'Renacimiento', 3.9),
         ('Juan González', 'A002', 'Matemáticas', 21, 'Geometría Analítica', 4.1),
         ('Ana Martínez', 'A003', 'Biología Celular', 22, 'Genética', 4.3),
@@ -118,139 +118,144 @@ The following instructions and commands need to be executed in your computer.
         ('Valeria Pérez', 'A037', 'Neurociencia Cognitiva', 20, 'Memoria y Cognición', 4.4),
         ('Martín González', 'A038', 'Filosofía Política', 21, 'Teoría de la Justicia', 4.3),
         ('Ana García', 'A039', 'Derecho Internacional', 23, 'Derechos Humanos', 3.7),
-        ('Diego Ramírez', 'A040', 'Ingeniería Biomédica', 22, 'Bioinstrumentación', 4.1);`
+        ('Diego Ramírez', 'A040', 'Ingeniería Biomédica', 22, 'Bioinstrumentación', 4.1);
 
-4)• Escriba una consulta para obtener el promedio del GPA de todos los estudiantes cuyo nombre comienza con 'A'.
+4)Write a query to get the average of the GPA from all the students which name starts with ‘A’.
 
     SELECT AVG(GPA) AS Promedio_GPA
-    FROM Estudiante
-    WHERE Nombre LIKE 'A%';
+    FROM Student
+    WHERE Name LIKE 'A%';
 
-5)• Escriba una consulta para obtener la lista de estudiantes que están en la misma clase, tienen un GPA superior a 3.5/5.0 y ordenarlos por Edad y Nombre.
+5)Write a query to get the list of students that are in the same class, have a GPA higher than 3.5/5.0 and order them by Age and Name. 
 
     SELECT *
-    FROM Estudiante
-    WHERE Clase = 'nombre_de_la_clase' -- Reemplaza 'nombre_de_la_clase' con el nombre de la clase deseada
+    FROM Student
+    WHERE Class = 'Name_of_the_class'
     AND GPA > 3.5
-    ORDER BY Edad, Nombre;
+    ORDER BY Age, Name;
 
-6)• Escriba una consulta para obtener la lista de todos los estudiantes con 'Nombre, 'Código, 'Clase', 'Edad', 'Asignatura favorita, 'GPA'.
+6)Write a query to get the list of all the students with ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’.
 
-    SELECT Nombre, Código, Clase, Edad, Asunto_favorito, GPA
-    FROM Estudiante;
+    SELECT Name, Code, Class, Age, Favorite_Subject, GPA
+    FROM Student;
 
-7)• Realice el siguiente cuestionario de 25 preguntas sobre SQL; incluya una captura de pantalla sobre los resultados y el tiempo que tomó realizar el examen.
+7)	Take the following 25 question quiz about SQL, please include a screenshot about the results and time it took to take the test.
 http://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL
 
-![diagram](./part_2/SQL%20test%20result.png)
+![diagram](part_2/SQL test result.png)
 
 
 ## Part 3
 
-1. ¿Cuál es la diferencia entre una prueba unitaria, una prueba de aceptación, una prueba de integración y una prueba de un extremo a otro?
+1) What is the difference between a unit test, an acceptance test, an integration test and an end-to-end test?
 
     Cada tipo de prueba tiene su propósito específico en el ciclo de vida del desarrollo de software y se enfoca en diferentes aspectos y niveles del sistema.
     para poder responder la pregunta primero hablemos sobre las cualidades de cada una y de ultimo sus diferencias
 
-        Pruebas unitarias :
-
+        Las pruebas unitarias : 
             se centran en validar el comportamiento individual de componentes o unidades de código.
             Son pruebas pequeñas y se ejecutan de manera aislada, generalmente escritas por los desarrolladores.
             Su objetivo es asegurar que cada parte del código (una función, método o clase) funcione correctamente según su diseño.
             Se realizan usando frameworks de pruebas como JUnit, NUnit, Jest, entre otros, y se ejecutan frecuentemente durante el desarrollo.
 
-        Pruebas de integración :
-
+        Las pruebas de integración :
             evalúan cómo los componentes individuales se combinan y funcionan juntos como un sistema más grande.
             Verifican la interacción entre diferentes partes del sistema y cómo se integran para formar un conjunto funcional.
             Pueden ser manuales o automatizadas y se realizan después de las pruebas unitarias para asegurar que las unidades funcionen en conjunto correctamente.
             Identifican problemas que pueden surgir debido a la interacción entre módulos y cómo se comunican entre sí.
-
-        Pruebas de aceptación :
-
+       
+        Las pruebas de aceptación :
             validan si el sistema cumple con los requisitos y expectativas del cliente o usuario final.
             Generalmente se realizan para evaluar el comportamiento del sistema desde la perspectiva del usuario final.
             Pueden ser automatizadas o manuales, y a menudo se basan en escenarios de uso del sistema.
             Están diseñadas para asegurar que el software entregado cumpla con las necesidades y expectativas del cliente.
-
-        Pruebas de extremo a extremo:
-
+            
+        Las pruebas de extremo a extremo:
             evalúan todo el flujo de un sistema desde el inicio hasta el final.
             Verifican el funcionamiento del sistema completo, incluyendo la interacción de todos los componentes y su comportamiento en un entorno similar al de producción.
             A menudo simulan el flujo real del usuario, desde la entrada de datos hasta la salida y las interacciones entre varios sistemas o módulos.
             Pueden ser complejas y requieren escenarios de prueba bien diseñados para cubrir todas las funcionalidades.
+        
+    En resumen
+    las pruebas unitarias se centran en partes individuales del código.
+    las pruebas de integración se centran en cómo se combinan estas partes
+    las pruebas de aceptación se enfocan en validar los requisitos del usuario
+    mientras que las pruebas de extremo a extremo evalúan el sistema completo en un entorno similar al de producción
+    Todas estas pruebas son importantes para garantizar la calidad y el funcionamiento correcto del software.
 
 
+2) Could you explain Cohn's automation pyramid?
 
-2. ¿Podrías explicar la pirámide de automatización de Cohn?
-
-        La idea central de la pirámide es que las pruebas más básicas y rápidas (pruebas unitarias) conformen la base sólida de las pruebas automatizadas
-        mientras que las pruebas de integración, las pruebas de UI y las pruebas de sistema sean menos numerosas pero complementen y validen la funcionalidad del sistema desde diferentes perspectivas.
-        Este modelo proporciona una guía sobre la distribución adecuada de esfuerzos y recursos en las pruebas automatizadas
-        destacando la importancia de las pruebas unitarias y fomentando un equilibrio entre los diferentes niveles de pruebas para mejorar la calidad del software.
+    La idea central de la pirámide es que las pruebas más básicas y rápidas (pruebas unitarias) conformen la base sólida de las pruebas automatizadas
+    mientras que las pruebas de integración, las pruebas de UI y las pruebas de sistema sean menos numerosas pero complementen y validen la funcionalidad del sistema desde diferentes perspectivas.
+    Este modelo proporciona una guía sobre la distribución adecuada de esfuerzos y recursos en las pruebas automatizadas
+    destacando la importancia de las pruebas unitarias y fomentando un equilibrio entre los diferentes niveles de pruebas para mejorar la calidad del software.
 
 
-3.  ¿Podría explicar la diferencia entre una prueba de caja negra y una prueba de caja blanca?
+3)  Could you explain the difference between a black box testing and a white box testing?
 
-        La principal diferencia entre pruebas de caja negra y pruebas de caja blanca radica en el nivel de conocimiento que tiene el tester sobre el sistema o software a probar.
-        En las pruebas de caja negra, se prueba la funcionalidad sin considerar la lógica interna
-        mientras que en las pruebas de caja blanca se evalúa la estructura y la lógica interna del código.
-        Ambas técnicas son complementarias y se utilizan en conjunto para garantizar una cobertura exhaustiva en la validación del software.
+    La principal diferencia entre pruebas de caja negra y pruebas de caja blanca radica en el nivel de conocimiento que tiene el tester sobre el sistema o software a probar.
+    En las pruebas de caja negra, se prueba la funcionalidad sin considerar la lógica interna
+    mientras que en las pruebas de caja blanca se evalúa la estructura y la lógica interna del código.
+    Ambas técnicas son complementarias y se utilizan en conjunto para garantizar una cobertura exhaustiva en la validación del software.
 
-4. ¿Cuál es el propósito de una prueba exploratoria y cuándo es útil realizarla?
+4) What is the purpose of an exploratory test and when is it useful to run them?
 
-        Una prueba exploratoria es una técnica de prueba en la que el tester, en lugar de seguir un plan de pruebas detallado y predefinido, interactúa dinámicamente con el software, investigando, descubriendo y evaluando su funcionamiento de manera espontánea y creativa.
-        El propósito principal de las pruebas exploratorias es descubrir defectos y problemas no documentados o inesperados en el software, así como comprender mejor su funcionamiento en un tiempo limitado.
+    Una prueba exploratoria es una técnica de prueba en la que el tester, en lugar de seguir un plan de pruebas detallado y predefinido, interactúa dinámicamente con el software, investigando, descubriendo y evaluando su funcionamiento de manera espontánea y creativa.
+    El propósito principal de las pruebas exploratorias es descubrir defectos y problemas no documentados o inesperados en el software, así como comprender mejor su funcionamiento en un tiempo limitado.
 
-        Las pruebas exploratorias son útiles en varias situaciones.
-        como al inicio del ciclo de desarrollo cuando hay poca documentación disponible
-        en situaciones de tiempo limitado para pruebas formales.
-        en áreas críticas donde se necesitan pruebas adicionales, o simplemente para explorar y comprender mejor el software.
-        Además, pueden ser una herramienta valiosa en equipos ágiles o métodos de desarrollo iterativos, donde se valora la adaptabilidad y la flexibilidad en el proceso de prueba.
+    Las pruebas exploratorias son útiles en varias situaciones.
+    como al inicio del ciclo de desarrollo cuando hay poca documentación disponible
+    en situaciones de tiempo limitado para pruebas formales.
+    en áreas críticas donde se necesitan pruebas adicionales, o simplemente para explorar y comprender mejor el software.
+    Además, pueden ser una herramienta valiosa en equipos ágiles o métodos de desarrollo iterativos, donde se valora la adaptabilidad y la flexibilidad en el proceso de prueba.
 
-5. Mencione al menos 5 técnicas de diseño de pruebas y explíquelas brevemente.
+5) Mention at least 5 test design techniques and explain them briefly
 
-    Pruebas de Equivalencia:
+    A)Pruebas de Equivalencia:
 
         Explicación: Esta técnica consiste en dividir el conjunto de datos en clases de equivalencia y luego seleccionar casos de prueba representativos de cada clase.
-
+        
         Uso: Se eligen un conjunto mínimo de casos de prueba que cubran diferentes escenarios dentro de cada clase de equivalencia. Por ejemplo, si una función espera números entre 1 y 100, se seleccionarán casos de prueba para valores dentro, en el límite y fuera de ese rango.
-
-    Pruebas de Límites (Boundary Testing):
+    
+    B)Pruebas de Límites (Boundary Testing):
 
         Explicación: Se enfoca en probar los límites o bordes entre diferentes clases de equivalencia.
 
         Uso: Se seleccionan casos de prueba que se encuentren en los límites, incluyendo valores límite y justo fuera de estos límites. Por ejemplo, si se tiene un campo de entrada que acepta valores entre 1 y 10, las pruebas de límites se centran en probar con 1, 10 y valores como 0 y 11.
 
-    Tabla de Decisión (Decision Table Testing):
+    C)Tabla de Decisión (Decision Table Testing):
 
         Explicación: Se utiliza para probar combinaciones específicas de condiciones de entrada y determinar las acciones correspondientes.
-
+        
         Uso: Se crea una tabla que enumera todas las posibles combinaciones de condiciones de entrada y sus acciones asociadas. Luego, se prueban cada una de estas combinaciones.
 
 
-    Pruebas de Estado (State Transition Testing):
+    D)Pruebas de Estado (State Transition Testing):
 
         Explicación: Esta técnica se utiliza para probar el comportamiento de un sistema en diferentes estados y las transiciones entre estos estados.
-
+        
         Uso: Se modelan los diferentes estados del sistema, junto con las transiciones permitidas entre ellos. Las pruebas se centran en probar estas transiciones y el comportamiento del sistema en cada estado.
 
 
-    Pruebas Basadas en Caja Negra (Black Box Testing):
+    E)Pruebas Basadas en Caja Negra (Black Box Testing):
 
         Explicación: Se enfoca en probar la funcionalidad del software sin conocer su estructura interna o lógica de implementación.
-
+        
         Uso: Los casos de prueba se diseñan basándose en especificaciones, requisitos, y la funcionalidad esperada del software. Se prueban las entradas y salidas del sistema sin considerar el código interno.
 
-
-
-
-6. ¿Cuál es el propósito de los siguientes tipos de pruebas?
+6)	What is the purpose of the following types of tests?
+	•	Functional test: 
+	•	Performance test: 
+	•	Security test:
+	•	Usability test: 
+	•	API test: 
+	•	Unit Test:
 
     • Prueba funcional:
 
             Propósito: Verificar que el software cumpla con los requisitos funcionales especificados.
-
+            
             Enfoque: Evaluar las funciones, características y comportamientos del software desde la perspectiva del usuario final.
 
     • Prueba de rendimiento:
@@ -258,29 +263,29 @@ http://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL
             Propósito: Evaluar cómo se comporta el software en términos de velocidad, capacidad, escalabilidad y estabilidad bajo diferentes cargas y situaciones.
 
             Enfoque: Medir y analizar el rendimiento del software en términos de tiempo de respuesta, uso de recursos, tiempo de procesamiento, etc.
-
+    
     • Prueba de seguridad:
 
             Propósito: Identificar vulnerabilidades, riesgos y problemas de seguridad en el software para protegerlo contra posibles amenazas.
-
-            Enfoque: Evaluar la resistencia del sistema ante ataques, fallos de seguridad, robo de datos, entre otros.
+            
+            Enfoque: Evaluar la resistencia del sistema ante ataques, fallos de seguridad, robo de datos, entre otros.  
 
     • Prueba de usabilidad:
 
             Propósito: Evaluar la facilidad de uso, la eficiencia y la satisfacción del usuario al interactuar con el software.
-
+            
             Enfoque: Analizar la interfaz de usuario, la navegación, la accesibilidad y la experiencia general del usuario.
 
     • Prueba API:
 
             Propósito: Verificar el comportamiento funcional, la confiabilidad y la integración entre diferentes componentes del software a través de sus interfaces.
-
+            
             Enfoque: Probar los métodos de entrada/salida, el manejo de errores, la autenticación, la seguridad y la interoperabilidad de las API.
 
     • Prueba de unidad:
 
             Propósito: Verificar que las unidades individuales de código (funciones, métodos, clases) funcionen correctamente de manera aislada.
-
+            
             Enfoque: Evaluar la funcionalidad de las partes más pequeñas del software a través de pruebas específicas realizadas por los desarrolladores.
 
 
