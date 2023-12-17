@@ -1,0 +1,88 @@
+1)•Explain the difference, in databases, between ‘Having’ and ‘where’ when it comes to a query. Develop one example for each one of this two cases and point out the difference.
+
+    Differences:
+    WHERE se utiliza para filtrar filas individuales antes de agrupar resultados.
+    HAVING se utiliza para filtrar grupos de resultados basados en condiciones de agregación.
+
+2)Write a query for create a data table ‘Student’ with the following attributes in it: ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’ (5.0 scale).
+
+    CREATE TABLE Student (
+        Name VARCHAR(50),
+        Code VARCHAR(10),
+        Class VARCHAR(50),
+        Age INT,
+        Favorite_Subject VARCHAR(50),
+        GPA DECIMAL(3, 2)
+    );
+
+3) Insert at least 40 records in the last table with close to real data.
+
+    `INSERT INTO Student (Name, Code, Class, Age, Favorite_Subject, GPA) VALUES
+        ('María Pérez', 'A001', 'Historia del Arte', 20, 'Renacimiento', 3.9),
+        ('Juan González', 'A002', 'Matemáticas', 21, 'Geometría Analítica', 4.1),
+        ('Ana Martínez', 'A003', 'Biología Celular', 22, 'Genética', 4.3),
+        ('Carlos Rodríguez', 'A004', 'Literatura Universal', 20, 'Teatro Griego', 3.8),
+        ('Sofía García', 'A005', 'Física Moderna', 23, 'Mecánica Cuántica', 4.5),
+        ('Daniel Sánchez', 'A006', 'Economía', 21, 'Microeconomía', 3.7),
+        ('Laura López', 'A007', 'Química Inorgánica', 22, 'Química Analítica', 4.2),
+        ('Javier Martín', 'A008', 'Psicología', 20, 'Psicología Cognitiva', 3.9),
+        ('Paula Ramírez', 'A009', 'Derecho Internacional', 24, 'Derecho Penal', 4.0),
+        ('Miguel Fernández', 'A010', 'Ingeniería de Software', 23, 'Desarrollo Web', 4.4),
+        ('Elena Gómez', 'A011', 'Biología Marina', 21, 'Ecología Acuática', 4.1),
+        ('Alejandro Pérez', 'A012', 'Antropología', 22, 'Antropología Forense', 3.8),
+        ('Carmen Torres', 'A013', 'Arquitectura', 20, 'Diseño Urbano', 4.3),
+        ('Pedro Ruiz', 'A014', 'Sociología', 24, 'Movimientos Sociales', 3.6),
+        ('Isabella González', 'A015', 'Arte Contemporáneo', 22, 'Instalaciones Artísticas', 4.6),
+        ('Diego Martínez', 'A016', 'Estadística', 21, 'Análisis de Datos', 3.9),
+        ('Valentina Sánchez', 'A017', 'Neurociencia', 23, 'Neurobiología Molecular', 4.1),
+        ('Emilio Gómez', 'A018', 'Filosofía', 20, 'Ética', 4.0),
+        ('Luisa Ramírez', 'A019', 'Derecho Civil', 24, 'Contratos', 4.4),
+        ('Andrés Fernández', 'A020', 'Ingeniería Eléctrica', 21, 'Electrónica de Potencia', 4.2),
+        ('Camila López', 'A021', 'Medicina', 22, 'Anatomía Humana', 4.5),
+        ('Gustavo Martín', 'A022', 'Historia', 20, 'Edad Media', 3.8),
+        ('Lucía Pérez', 'A023', 'Geología', 23, 'Geología Estructural', 4.3),
+        ('Felipe Rodríguez', 'A024', 'Literatura Comparada', 21, 'Novela del Siglo XX', 4.1),
+        ('Victoria García', 'A025', 'Física Nuclear', 22, 'Física de Partículas', 3.9),
+        ('Renata Sánchez', 'A026', 'Economía Internacional', 20, 'Comercio Internacional', 4.2),
+        ('Marcos Ramírez', 'A027', 'Química Orgánica', 24, 'Síntesis Orgánica', 4.4),
+        ('Carolina Fernández', 'A028', 'Psicología Social', 21, 'Psicología Organizacional', 3.7),
+        ('Roberto Gómez', 'A029', 'Derecho Penal', 22, 'Criminología', 4.3),
+        ('Lucas Pérez', 'A030', 'Marketing', 20, 'Estrategias de Mercado', 4.0),
+        ('Julia Martínez', 'A031', 'Biología Molecular', 23, 'Genómica', 4.6),
+        ('Ignacio González', 'A032', 'Antropología Cultural', 21, 'Evolución Humana', 3.8),
+        ('Alicia Ramírez', 'A033', 'Arquitectura Sostenible', 24, 'Diseño Ecológico', 4.2),
+        ('Hugo Fernández', 'A034', 'Sociología Urbana', 22, 'Planificación Urbana', 3.9),
+        ('Marina López', 'A035', 'Arte Moderno', 21, 'Expresionismo Abstracto', 4.5),
+        ('Bruno Martín', 'A036', 'Estadística Avanzada', 23, 'Análisis Multivariado', 4.0),
+        ('Valeria Pérez', 'A037', 'Neurociencia Cognitiva', 20, 'Memoria y Cognición', 4.4),
+        ('Martín González', 'A038', 'Filosofía Política', 21, 'Teoría de la Justicia', 4.3),
+        ('Ana García', 'A039', 'Derecho Internacional', 23, 'Derechos Humanos', 3.7),
+        ('Diego Ramírez', 'A040', 'Ingeniería Biomédica', 22, 'Bioinstrumentación', 4.1);
+
+4)Write a query to get the average of the GPA from all the students which name starts with ‘A’.
+
+    SELECT AVG(GPA) AS Promedio_GPA
+    FROM Student
+    WHERE Name LIKE 'A%';
+
+5)Write a query to get the list of students that are in the same class, have a GPA higher than 3.5/5.0 and order them by Age and Name. 
+
+    SELECT *
+    FROM Student
+    WHERE Class = 'Name_of_the_class'
+    AND GPA > 3.5
+    ORDER BY Age, Name;
+
+6)Write a query to get the list of all the students with ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’.
+
+    SELECT Name, Code, Class, Age, Favorite_Subject, GPA
+    FROM Student;
+
+7)	Take the following 25 question quiz about SQL, please include a screenshot about the results and time it took to take the test.
+http://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL
+
+![diagram](part_2/SQL test result.png)
+
+
+
+

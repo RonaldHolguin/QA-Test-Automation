@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "f587bc12-06a9-4c1d-840e-29f1a91f1454",
+		"name": "Scenario_3_4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16347364"
+	},
+	"item": [
+		{
+			"name": "3_Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "tomsmith",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "SuperSecretPassword!",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://the-internet.herokuapp.com/authenticate",
+					"protocol": "https",
+					"host": [
+						"the-internet",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4_Upload_File",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data; boundary=----WebKitFormBoundarydeoAu7lKqNGKaJA9",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Volumes/data/Answers_Qa/Parte1/Postman/test_file.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://the-internet.herokuapp.com/upload",
+					"protocol": "https",
+					"host": [
+						"the-internet",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
