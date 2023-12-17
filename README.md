@@ -65,15 +65,15 @@ The following instructions and commands need to be executed in your computer.
     WHERE used to filter individual rows before grouping results.
 
         SELECT *
-        FROM Pedidos
-        WHERE ID_Cliente = 12345 AND Cantidad > 50;
+        FROM Student
+        WHERE Code = A001 ;
 
     HAVING used to filter groups of results based on aggregation conditions.
 
-        SELECT ID_Cliente, SUM(Cantidad) AS TotalCantidad
-        FROM Pedidos
-        GROUP BY ID_Cliente
-        HAVING SUM(Cantidad) > 100;
+        SELECT ID_Customer, SUM(Amount) AS TotalAmount
+        FROM Orders
+        GROUP BY ID_Customer
+        HAVING SUM(Amount) > 100;
 
 
 2) Write a query for create a data table ‘Student’ with the following attributes in it: ‘Name, ‘Code, ‘Class’, ‘Age’, ‘Favorite Subject, ‘GPA’ (5.0 scale).
